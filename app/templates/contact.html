@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Contact Form</h1>
+<hr class="solid">
+<p>Fill in this form to contact the site owners</p>
+<form class="mb-3" action="/contact" method="POST">
+    {{ form.csrf_token }}
+
+    <div class="form-group mb-4">
+        {{ form.name.label }}
+        {{ form.name(size=20, class_="form-control") }}
+    </div>
+
+    <div class="form-group mb-4">
+        {{ form.email.label }}
+        {{ form.email(size=20, class_="form-control") }}
+    </div>
+
+    <div class="form-group mb-4">
+        {{ form.subject.label}}
+        {{ form.subject(size=20, class_="form-control") }}
+    </div>
+
+    <div class="form-group mb-4">
+        {{ form.message.label}}
+        {{ form.message(class_="form-control") }}
+    </div>
+
+    <button class="btn btn-primary px-4" type="submit">Send</button>
+</form>
+{% endblock %}
